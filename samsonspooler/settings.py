@@ -5,7 +5,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Hef', 'hef@pbrfrat.com'),
 )
 
 MANAGERS = ADMINS
@@ -121,6 +121,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'gunicorn',
+    'kombu.transport.django',
+    'djcelery',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -151,3 +154,7 @@ LOGGING = {
         },
     }
 }
+
+BROKER_BACKEND = 'django'
+import djcelery
+djcelery.setup_loader()
