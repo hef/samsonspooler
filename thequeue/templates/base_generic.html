@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}Samson Spooler{% endblock %}</title>
+		<link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+		<link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			{% block content %}
+			<div class="row">
+				<div class="span4">
+					<h1>Hello World!</h1>
+					<p>Hello, World!</p>
+				</div>
+			</div>
+			{% endblock %}
+		<hr>
+		<footer>
+			<p>PS1Frocks!</p>	
+		</footer>
+		</div>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>

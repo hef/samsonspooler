@@ -114,6 +114,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'kombu.transport.django',
     'djcelery',
+    'thequeue',
 )
 
 # A sample logging configuration. The only tangible logging
