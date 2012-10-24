@@ -11,6 +11,3 @@ DATABASES = {
 }
 
 ROOT_URLCONF = 'config.development.urls'
-
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'config.development.wsgi.application'
