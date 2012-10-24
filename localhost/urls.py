@@ -1,1 +1,0 @@
-from samsonspooler.urls import *
