@@ -5,4 +5,4 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
-ROOT_URLCONF = 'config.heroku.urls'
+ROOT_URLCONF = 'config.production.urls'
