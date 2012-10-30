@@ -3,6 +3,11 @@ from config.common.settings import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3'
+    }
+}
 
 ROOT_URLCONF = 'config.production.urls'
