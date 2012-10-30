@@ -1,4 +1,3 @@
-import dj_database_url
 # Django settings for samsonspooler project.
 
 DEBUG = True
