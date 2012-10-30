@@ -1,1 +1,2 @@
 -r ../common/requirements.txt
+Fabric==1.4.3
