@@ -1,20 +1,18 @@
 from fabric.api import run, cd, prefix
 
-def virtualenv(command):
-    with cd(env.directory):
-        run(env.activate + '&&' + command)
-
 def bootstrap():
-    with cd('/srv/'):
-        run('git clone https://github.com/hef/samsonspooler.git')
-    with cd('/srv/samsonspooler'):
+    """creates app log media static venv directories"""
+    with cd('/srv/www/spooler.arbitrarion.com'):
+        run('mkdir -p static media log')
         run('virtualenv --distribute venv')
+        run('git clone https://github.com/hef/samsonspooler.git app')
 
 def deploy():
-    with cd('/srv/samsonspooler/'):
-        run('git remote update')
-        run('git merge origin/master')
-        with prefix('source /srv/samsonspooler/venv/bin/activate'):
-            run('pip install -r config/production/requirements.txt')
-            run('./manage.py syncdb --settings=config.production.settings')
-            run('./manage.py collectstatic --noinput --settings=config.production.settings')
+    with cd('/srv/www/spooler.arbitrarion.com'):
+            with cd('app'):
+                run('git remote update')
+                run('git merge origin/master')
+                with prefix('source ../venv/bin/activate'):
+                    run('pip install -r config/production/requirements.txt')
+                    run('./manage.py syncdb --settings=config.production.settings')
+                    run('./manage.py collectstatic --noinput --settings=config.production.settings')
