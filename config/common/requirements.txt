@@ -1,2 +1,5 @@
 Django==1.4.1
 gunicorn==0.14.6
+django-bootstrap-toolkit==2.5.11
+PyYAML==3.10
+pytz==2012f

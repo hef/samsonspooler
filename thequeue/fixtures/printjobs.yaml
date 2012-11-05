@@ -1,0 +1,20 @@
+- model: thequeue.PrintJob
+  pk: 1
+  fields: 
+    title: A Big Thing
+    submitted: 2011-09-01T13:20:30+03:00
+- model: thequeue.PrintJob
+  pk: 2
+  fields: 
+    title: A small thing
+    submitted: 2011-09-01T13:20:30+03:00
+- model: thequeue.PrintJob
+  pk: 3
+  fields: 
+    title: A giant turd
+    submitted: 2011-09-01T13:20:30+03:00
+- model: thequeue.PrintJob
+  pk: 4
+  fields: 
+    title: callibration cube
+    submitted: 2011-09-01T13:20:30+03:00

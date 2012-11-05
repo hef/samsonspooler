@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<ul class="unstyled">
+{% for job in jobs %}
+<li class="well">
+	<h2>{{ job.title|title }}</h2>
+	<p>Submitted on {{ job.submitted }}</p>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'kombu.transport.django',
     'djcelery',
     'thequeue',
+    'bootstrap_toolkit',
 )
 
 # A sample logging configuration. The only tangible logging

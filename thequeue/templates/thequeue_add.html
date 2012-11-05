@@ -1,7 +1,15 @@
 {% extends "base_generic.html" %}
 
+{% load bootstrap_toolkit %}
+
 {% block content %}
 <h1>Add a New Print Job</h1>
-{% include "_form.html" with form=form action="" %}
-
+<form class="form-horizontal" action="" method=post>
+	{% csrf_token %}
+	{{ form|as_bootstrap:"horizontal" }}
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary">Save</button>
+		<button type="button" class="btn">Cancel</button>
+	</div>
+</form>
 {% endblock %}

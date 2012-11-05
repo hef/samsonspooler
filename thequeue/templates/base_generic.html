@@ -14,22 +14,39 @@
 					<ul class="nav">
 						<li><a href="/thequeue/">Print Queue</a></li>
 					</ul>
-
 				</div>
 			</div>
 		</div>
 		<div class="container">
-			{% block content %}
 			<div class="row">
-				<div class="span4">
+				<div class="span3">
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+							<li class="nav-header">Print It</li>
+							<li><a href="/thequeue/new">Add It</a></li>
+							<li><a href="/thequeue/list">See It</a></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div> <!--/well /sidebar-nav-->
+				</div> <!-- /span3 -->
+				<div class="row">
+					<div class="span9">
+			{% block content %}
 					<h1>Hello World!</h1>
 					<p>Hello, World!</p>
-				</div>
-			</div>
 			{% endblock %}
+					</div>
+				</div>
+			</div><!-- /row -->
 			<hr>
 			<footer>
-			<small><p>Just Fscking Do It!</p></small>
+				<small><p>Just fucking do it.</p></small>
 			</footer>
 		</div>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
