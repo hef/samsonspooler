@@ -8,12 +8,12 @@ class PrintJob(models.Model):
 	submitted = models.DateTimeField()
 	created = models.DateTimeField(null=True, blank=True)
 	finished = models.DateTimeField(null=True, blank=True)
+        gcode = models.FileField(upload_to="gcode")
 
         def __unicode__(self):
             return self.title
 
 class PrintJobForm(forms.ModelForm):
-    #file = forms.FileField()
     class Meta:
         model = PrintJob
         exclude = ('submitted', 'created', 'finished')

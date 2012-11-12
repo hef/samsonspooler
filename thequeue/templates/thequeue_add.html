@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Add a New Print Job</h1>
-<form class="form-horizontal" action="" method=post>
+<form enctype="multipart/form-data" class="form-horizontal" action="" method=post>
 	{% csrf_token %}
 	{{ form|as_bootstrap:"horizontal" }}
 	<div class="form-actions">

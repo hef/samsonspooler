@@ -110,8 +110,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'gunicorn',
-    'kombu.transport.django',
-    'djcelery',
     'thequeue',
     'bootstrap_toolkit',
 )
@@ -144,7 +142,3 @@ LOGGING = {
         },
     }
 }
-
-BROKER_BACKEND = 'django'
-import djcelery
-djcelery.setup_loader()

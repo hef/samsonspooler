@@ -4,3 +4,4 @@ celerybeat-schedule.db
 db.sqlite3
 .env
 static
+media
