@@ -6,6 +6,7 @@
 <li class="well">
 	<h2>{{ job.title|title }}</h2>
 	<p>Submitted on {{ job.submitted }}</p>
+	<a href="{{ job.gcode.url }}">Download Gcode</a>
 </li>
 {% endfor %}
 </ul>
