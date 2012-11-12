@@ -16,6 +16,6 @@ def deploy():
                 run('git merge origin/master')
                 with prefix('source ../venv/bin/activate'):
                     run('pip install -r config/production/requirements.txt')
-                    run('./manage.py syncdb --settings=config.production.settings')
-                    run('./manage.py collectstatic --noinput --settings=config.production.settings')
+                    run('./manage.py syncdb')
+                    run('./manage.py collectstatic --noinput')
                     sudo('supervisorctl restart samsonspooler')
