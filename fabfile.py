@@ -1,4 +1,6 @@
-from fabric.api import run, cd, prefix
+from fabric.api import run, cd, prefix, sudo, env
+
+env.hosts = ['arbitrarion.com']
 
 def bootstrap():
     """creates app log media static venv directories"""
@@ -16,3 +18,4 @@ def deploy():
                     run('pip install -r config/production/requirements.txt')
                     run('./manage.py syncdb --settings=config.production.settings')
                     run('./manage.py collectstatic --noinput --settings=config.production.settings')
+                    sudo('supervisorctl restart samsonspooler')
