@@ -1,4 +1,5 @@
 venv
+*.un~
 *.pyc
 celerybeat-schedule.db
 db.sqlite3
