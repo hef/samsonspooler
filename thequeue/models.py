@@ -8,7 +8,7 @@ class PrintJob(models.Model):
 	submitted = models.DateTimeField()
 	created = models.DateTimeField(null=True, blank=True)
 	finished = models.DateTimeField(null=True, blank=True)
-        gcode = models.FileField(upload_to="gcode")
+        s3g = models.FileField(upload_to="s3g")
 
         def __unicode__(self):
             return self.title
