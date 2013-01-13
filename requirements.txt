@@ -1,4 +1,6 @@
 Django==1.4.3
+django-bootstrap-toolkit==2.6.23
+gunicorn==0.17.2
 -e git://github.com/hef/s3g.git@465eb90b0a89c937de1943279eb921a6e15b83d9#egg=makerbot_driver-dev
 -e git://github.com/makerbot/pyserial.git@15784ef6d9f070afd020e710e19523c4862b4b30#egg=pyserial-dev
 wsgiref==0.1.2
