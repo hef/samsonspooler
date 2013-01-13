@@ -12,7 +12,7 @@ class ReplicatorDriver:
         file = serial.Serial(serial_port, 115200, timeout=1)
         self.r.writer = makerbot_driver.Writer.StreamWriter(file)
 
-    def print_file(file, serial_port='/dev/ttyACM0'):
+    def print_file(self, file):
 
         reader = makerbot_driver.FileReader.FileReader()
         reader.file = open(file)
