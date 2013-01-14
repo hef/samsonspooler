@@ -14,5 +14,5 @@ Use an appropriate python2 virtualenv for your platform.
     pip install -e git://github.com/makerbot/pyserial.git#egg=pyserial
     pip install -r requirements.txt
     ./manage.py syncdb
-    ./manage.py rynserver
+    ./manage.py runserver
 
