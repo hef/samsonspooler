@@ -3,27 +3,42 @@ import serial
 from makerbot_driver.FileReader.constants import hostFormats
 from makerbot_driver.FileReader.constants import slaveFormats
 import struct
+from pprint import pprint
+from time import sleep
 
 
 class ReplicatorDriver:
         
-    def connect(self, port='/dev/ttyACM0'):
+    def connect(self, serial_port='/dev/ttyACM0'):
         self.r = makerbot_driver.s3g()
-        file = serial.Serial(serial_port, 115200, timeout=1)
-        self.r.writer = makerbot_driver.Writer.StreamWriter(file)
+        try:
+            file = serial.Serial(serial_port, 115200, timeout=1)
+            self.r.writer = makerbot_driver.Writer.StreamWriter(file)
+        except serial.SerialException:
+            #todo log that this happened
+            file = open("samson.s3g",'wb')
+            self.r.writer = makerbot_driver.Writer.FileWriter(file) 
 
     def print_file(self, file):
 
         reader = makerbot_driver.FileReader.FileReader()
-        reader.file = open(file)
+        reader.file = file
         payloads = reader.ReadFile()
 
-        self.r.capture_to_file("samson.s3g")
-        for paylaod in payloads:
+        try:
+            self.r.capture_to_file("samson.s3g")
+        except NotImplementedError:
+            pass
+
+        for payload in payloads:
             command = self.payload_to_command(payload) 
-            self.r.writer.send_command(command)
-        response = r.end_capture_to_file()
-        self.r.playback_capture("samson.s3g")
+            pprint(command)
+            self.r.writer.send_action_payload(command)
+            sleep(1)
+        try:
+            response = self.r.end_capture_to_file()
+        except NotImplementedError:
+            pass
 
     def payload_to_command(self, payload):
         command_code = payload[0]

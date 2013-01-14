@@ -1,5 +1,7 @@
 from django.db import models
 from django import forms
+from driver.tasks import print_s3g 
+from StringIO import StringIO
 
 # Create your models here.
 
@@ -12,6 +14,11 @@ class PrintJob(models.Model):
 
         def __unicode__(self):
             return self.title
+
+        def send(self):
+            data = self.s3g.read()
+            handle = StringIO(data)
+            print_s3g.delay(handle)
 
 class PrintJobForm(forms.ModelForm):
     class Meta:

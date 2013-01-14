@@ -112,6 +112,9 @@ INSTALLED_APPS = (
     'gunicorn',
     'thequeue',
     'bootstrap_toolkit',
+    'djcelery',
+    'driver',
+    'kombu.transport.django',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -142,3 +145,7 @@ LOGGING = {
         },
     }
 }
+
+import djcelery
+djcelery.setup_loader()
+BROKER_URL = 'django://'

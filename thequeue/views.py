@@ -36,3 +36,10 @@ class PrintJobListView(TemplateView):
         context = super(PrintJobListView, self).get_context_data(**kwargs)
         context['jobs'] = PrintJob.objects.all()
         return context;
+
+
+def run_job(request):
+   printjob = PrintJob.objects.order_by('submitted')[0]
+   printjob.send()
+   return HttpResponse()
+
