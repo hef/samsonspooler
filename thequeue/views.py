@@ -10,6 +10,11 @@ from django.views.generic.edit import FormView, CreateView
 def current(request):
    return render(request, 'thequeue_list.html', {})
 
+def run_job(request, key):
+   printjob = PrintJob.objects.get(pk=key)
+   printjob.send()
+   return HttpResponse()
+
 
 class PrintJobAddView(FormView):
     template_name = "thequeue_add.html"
@@ -38,8 +43,4 @@ class PrintJobListView(TemplateView):
         return context;
 
 
-def run_job(request):
-   printjob = PrintJob.objects.order_by('submitted')[0]
-   printjob.send()
-   return HttpResponse()
 
